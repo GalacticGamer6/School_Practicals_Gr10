@@ -1,6 +1,11 @@
+package Scanners_Writers;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /*
@@ -40,5 +45,20 @@ public class Book_Manager {
             System.out.println("FILE NOT FOUND");
         }
         return output;
+    }
+    
+    public static void Add_Book(String Book_Name, String Author){
+        try{
+            FileWriter fw = new FileWriter(file_Path, true);
+            PrintWriter pw = new PrintWriter(fw);
+            
+            pw.println(Book_Name + "#" + Author);
+            pw.close();
+           }
+        catch(IOException ex){
+            System.out.println("FILE NOT FOUND");
+            
+        }
+        
     }
 }
