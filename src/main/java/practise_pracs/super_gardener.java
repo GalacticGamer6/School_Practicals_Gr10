@@ -56,9 +56,10 @@ public class super_gardener {
         round_is_over = false;
         num_moves = 0;
         
-        draw_garden();
+//        && round_is_over == false
+        while(choice != 'Q' ){
         
-        while(choice != 'Q' && round_is_over == false){
+        draw_garden();            
         num_moves++;
         choice = (JOptionPane.showInputDialog("What do you want you want to do?\nL: Move Left\nR: Move Right\nF: Fill Up\nW: Water Plant\nQ: Quit").toUpperCase()).charAt(0);
                 
@@ -82,18 +83,21 @@ public class super_gardener {
                                         
                         case 'W':   if(gardener_pos == plant_pos){
                                         has_water = false;
+                                        choice = 'Q';
                                         round_is_over = true;
                                         }
                                         break;
                                         
+                                        
                 }
 
-                draw_garden();
+
                 
         }
         
         System.out.println("ROUND OVER");
         System.out.println("NUMBER OF MOVES: " + num_moves );
+        System.out.println("\n\n");
        
     }
     
